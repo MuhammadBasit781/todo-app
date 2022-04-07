@@ -1,0 +1,23 @@
+<%- include("./partials/header") %>
+
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Todo App</a>
+    </div>
+  </nav>
+
+<div class="container mt-5">
+    <form action="/add/user" method="POST" class="d-flex">
+        <input type="text" name="User" class="form-control" placeholder="Enter User">
+        <input type="submit" value="Add User"  class="btn btn-md btn-primary mx-2">
+    </form>
+    <ul class="list-group my-5">
+        <% users.forEach(user=>{%>
+             <li class="list-group-item"><%= users.user %> <a href="/delete/user/<%= user._id %>?data=2&friend=3" class="btn btn-danger btn-sm ">Delete</a></li>
+        <% })%>
+      </ul>
+</div>
+
+
+<%- include("./partials/footer")%>
